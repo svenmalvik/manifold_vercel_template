@@ -1,6 +1,6 @@
 # Manifold Vercel Template
 
-This repository is a Vercel-deployable React SPA starter used in Manifold's simple view.
+This repository is a Vercel-deployable React SPA used in Manifold's simple view by non-developers. The user interacts exclusively through chat — they describe what they want and the agent builds it.
 
 ## Tech stack
 
@@ -11,47 +11,41 @@ This repository is a Vercel-deployable React SPA starter used in Manifold's simp
 
 Do NOT add Dexie, IndexedDB, or server-side frameworks unless the user explicitly requests it.
 
-## Development
+## Agent workflows
 
-```bash
-npm install       # install dependencies (run first)
-npm run dev       # start Vite dev server at http://localhost:5173
-```
+The user will never run commands themselves. The agent must handle everything automatically based on what the user asks. Follow these patterns:
 
-The dev server hot-reloads on file changes. Always run `npm install` before `npm run dev` in a fresh clone.
+### When the user describes an app or requests changes
 
-## Build & type-check
+1. Edit the source files in `src/` to implement what the user described.
+2. Run `npm install` if any dependencies were added to `package.json`.
+3. Run `npm run dev` so the user can preview the result immediately.
+4. Narrate each step briefly so the user can follow along.
 
-```bash
-npm run build     # tsc -b && vite build → outputs dist/
-npm run preview   # serve the production build locally
-```
+### When the user wants to see their app live / share it
 
-Zero TypeScript errors are required before deploying. Fix all type errors before running `vercel deploy`.
+1. Run `npm run build` to type-check and produce `dist/`.
+2. Fix any TypeScript errors before proceeding.
+3. Run `vercel deploy` to create a preview URL.
+4. Share the URL with the user so they can open or share it.
+5. If the user wants it to be the "real" version, run `vercel deploy --prod`.
 
-## Deploying to Vercel
+### When something looks broken or the user reports an issue
 
-```bash
-vercel deploy             # deploy a preview URL
-vercel deploy --prod      # promote to production
-```
+1. Run `npm run build` to surface any TypeScript errors.
+2. Check the browser console output from the dev server.
+3. Fix the issue, then restart `npm run dev` for the user to verify.
 
-Vercel auto-detects Vite. The `vercel.json` rewrite rule ensures SPA routing works (no 404s on deep links).
+### When the user asks about environment variables or secrets
 
-## Environment variables
+1. Run `vercel env add KEY` to add a new variable.
+2. Run `vercel env pull .env.local` to sync variables locally.
+3. Never commit `.env.local` — it is in `.gitignore`.
 
-```bash
-vercel env add KEY                  # add a secret
-vercel env pull .env.local          # pull all vars to a local file
-```
+## Constraints
 
-Never commit `.env.local` — it is in `.gitignore`.
-
-## Agent guidance
-
-When extending this starter:
-- Preserve the Vite + CSS Modules structure unless there is a clear reason to change it
-- Run `npm install` after editing `package.json`
-- Run `npm run build` to verify there are no type errors before deploying
-- Narrate each step briefly so the user can follow along
-- After scaffolding is complete, run `npm run dev` so the user can preview immediately
+- Preserve the Vite + CSS Modules structure unless there is a clear reason to change it.
+- Always run `npm install` after editing `package.json`.
+- Always run `npm run build` to verify zero type errors before deploying.
+- The `vercel.json` rewrite rule ensures SPA routing works — do not remove it.
+- Keep the language simple when narrating steps; the user is not a developer.
