@@ -1,0 +1,141 @@
+.page {
+  min-height: 100vh;
+  padding: 48px 20px 80px;
+  background: linear-gradient(160deg, #0f1117 0%, #161b2e 60%, #0f1117 100%);
+  color: #e8eaf6;
+  font-family: system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+.shell {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+}
+
+.hero {
+  text-align: center;
+  padding: 48px 24px 32px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: #a5b4fc;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #e8eaf6 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 540px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #8892b0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #e8eaf6;
+}
+
+.cardText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #8892b0;
+  flex: 1;
+}
+
+.code {
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 13px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #a5b4fc;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.button {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.button:hover {
+  opacity: 0.88;
+}
+
+.buttonOutline {
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  border-radius: 999px;
+  background: transparent;
+  color: #a5b4fc;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.buttonOutline:hover {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 24px 16px 48px;
+  }
+
+  .hero {
+    padding: 32px 16px 24px;
+  }
+}
