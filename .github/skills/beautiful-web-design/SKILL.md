@@ -1,0 +1,1 @@
+../../../.claude/skills/beautiful-web-design/SKILL.md
