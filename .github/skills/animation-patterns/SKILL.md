@@ -1,0 +1,1 @@
+../../../.claude/skills/animation-patterns/SKILL.md

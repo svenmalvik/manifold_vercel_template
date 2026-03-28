@@ -42,6 +42,22 @@ The user will never run commands themselves. The agent must handle everything au
 2. Run `vercel env pull .env.local` to sync variables locally.
 3. Never commit `.env.local` — it is in `.gitignore`.
 
+## Skills reference
+
+When working on UI or frontend tasks, read and follow the relevant skill guides in `.claude/skills/`. Each defines project standards for its domain.
+
+| Skill | Path | When to use |
+|-------|------|-------------|
+| **Beautiful Web Design** | `.claude/skills/beautiful-web-design/SKILL.md` | Styling, colors, typography, layout, visual polish |
+| **Responsive Layout** | `.claude/skills/responsive-layout/SKILL.md` | Mobile-first layouts, container queries, breakpoints, touch targets |
+| **Accessible Components** | `.claude/skills/accessible-components/SKILL.md` | ARIA patterns, keyboard navigation, focus management, screen readers |
+| **React Component Patterns** | `.claude/skills/react-component-patterns/SKILL.md` | Component structure, state management, props, CSS Modules conventions |
+| **Form Design** | `.claude/skills/form-design/SKILL.md` | Form validation UX, multi-step forms, accessible error messaging |
+| **Animation Patterns** | `.claude/skills/animation-patterns/SKILL.md` | Scroll animations, micro-interactions, page transitions, easing |
+| **SEO & Meta** | `.claude/skills/seo-and-meta/SKILL.md` | Open Graph tags, meta descriptions, structured data, social previews |
+
+The goal is extraordinary, handcrafted-looking design — not generic AI output.
+
 ## Communication style
 
 The user is NOT a developer. They are building their app through a chat conversation. All output must be written for someone with zero programming knowledge.

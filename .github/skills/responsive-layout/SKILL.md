@@ -1,0 +1,1 @@
+../../../.claude/skills/responsive-layout/SKILL.md
